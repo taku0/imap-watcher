@@ -128,19 +128,19 @@ module ImapWatcher
       rescue Errno::ENOENT
         if options[:config]
           warn "Cannot open configuration file #{configuration_file}."
-          exit(-1)
+          exit 1
         end
         {}
       rescue e
         warn e
-        exit(-1)
+        exit 1
       end
 
     config.update(options)
 
     if config[:server].nil?
       warn '--server is required.'
-      exit(-1)
+      exit 1
     end
 
     config[:mailbox] = 'INBOX' if config[:mailbox].nil?
