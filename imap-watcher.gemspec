@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.executables = Dir['bin/*'].map { |p| File.basename(p) }
   s.license     = 'MIT'
 
-  s.required_ruby_version = '~>3.0'
+  s.required_ruby_version = '>=3.0'
 
   s.add_runtime_dependency 'mail', '~>2.7'
   s.add_runtime_dependency 'net-imap', '~>0.3'
