@@ -178,7 +178,10 @@ module ImapWatcher
     # @param id [String] and message ID
     # @return [void]
     def insert(id)
-      @database.execute('INSERT INTO message_ids (message_id) VALUES (?)', [id])
+      @database.execute(
+        'INSERT OR REPLACE INTO message_ids (message_id) VALUES (?)',
+        [id]
+      )
     end
 
     # Query all known message IDs in descending order.
