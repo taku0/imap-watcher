@@ -36,16 +36,16 @@ module ImapWatcher
   # Database tables for imap-watcher.
   class DatabaseTables
     # @return [LastUidTable]
-    attr :last_uid_table
+    attr_reader :last_uid_table
 
     # @return [MessageIdsTable]
-    attr :message_ids_table
+    attr_reader :message_ids_table
 
     # @return [MailQueueTable]
-    attr :mail_queue_table
+    attr_reader :mail_queue_table
 
     # @return [DeadLetterQueueTable]
-    attr :dead_letter_queue_table
+    attr_reader :dead_letter_queue_table
 
     # @param database [SQLite3::Database] a SQLite Database object
     def initialize(database)

@@ -5,10 +5,10 @@ require 'logger'
 require 'set'
 require 'time'
 
-require_relative './options'
-require_relative './db'
-require_relative './fetched_mail'
-require_relative './mail_client'
+require_relative 'options'
+require_relative 'db'
+require_relative 'fetched_mail'
+require_relative 'mail_client'
 
 # The ImapWatcher namespace.
 module ImapWatcher
@@ -268,6 +268,7 @@ module ImapWatcher
 
   # The logger for imap-watcher.
   LOGGER = Logger.new($stderr)
+  private_constant :LOGGER
 
   # Fetches existing message IDs and store in the database.
   #

@@ -13,14 +13,9 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>=3.0'
 
-  s.add_runtime_dependency 'mail', '~>2.7'
-  s.add_runtime_dependency 'net-imap', '~>0.3'
-  s.add_runtime_dependency 'net-pop'
-  s.add_runtime_dependency 'net-smtp'
-  s.add_runtime_dependency 'sqlite3', '~>1.5'
-
-  s.add_development_dependency 'rake', '~>13.0'
-  s.add_development_dependency 'rubocop', '~>1.4'
-  s.add_development_dependency 'rubocop-rake', '~>0.6'
-  s.add_development_dependency 'yard', '~>0.9'
+  s.add_dependency 'mail', '~>2.7'
+  s.add_dependency 'net-imap', '~>0.3'
+  s.add_dependency 'net-pop'
+  s.add_dependency 'net-smtp'
+  s.add_dependency 'sqlite3', '~>1.5'
 end
