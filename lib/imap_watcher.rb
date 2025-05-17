@@ -302,7 +302,7 @@ module ImapWatcher
     LOGGER.info('Done fetching initial messages.')
   end
 
-  # Fix the last known UID in LastUidTable using known.
+  # Fix the last known UID in LastUidTable using known message ID.
   #
   # If a mail with known message ID is found on the server, its UID is used.
   # Otherwise, set the last known UID as 0.
