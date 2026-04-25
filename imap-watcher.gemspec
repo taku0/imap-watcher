@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'imap-watcher'
-  s.version     = '1.0.0'
+  s.version     = '2.0.0'
   s.summary     = 'Execute command on new messages on IMAP server'
   s.description = 'imap-watcher watches on an IMAP server using IDLE command and execute command on new messages.'
   s.authors     = ['taku0']
