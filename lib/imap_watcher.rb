@@ -2,7 +2,6 @@
 
 require 'English'
 require 'logger'
-require 'set'
 require 'time'
 
 require_relative 'options'
@@ -113,7 +112,7 @@ module ImapWatcher
         fetch_source
       )
     count = last_sequence_number(imap)
-    uid_validity = imap.responses['UIDVALIDITY'].last
+    uid_validity = imap.responses('UIDVALIDITY', &:last)
 
     LOGGER.info 'Checking UIDVALIDITY...'
     tables.transaction(:exclusive) do
@@ -180,7 +179,7 @@ module ImapWatcher
         end
       end
 
-      imap.responses.clear
+      imap.clear_responses
 
       timeout = 15 * 60
 
@@ -220,7 +219,7 @@ module ImapWatcher
     end
 
     # @param mail [FetchedMail] the mail to process
-    def process_mail(mail)
+    def process_mail(mail) # rubocop:disable Naming/PredicateMethod
       open_executable(@command) do |io|
         io.puts(mail.to_h.to_json)
       end
@@ -231,7 +230,7 @@ module ImapWatcher
     end
 
     # @param mail [DeadLetter, FetchedMail] the dead letter to process
-    def process_dead_letter(mail)
+    def process_dead_letter(mail) # rubocop:disable Naming/PredicateMethod
       open_executable(@dead_letter_command) do |io|
         hash = mail.to_h
         hash.delete(:id)
@@ -255,11 +254,11 @@ module ImapWatcher
     # @param executable [String, nil] the executable
     # @yieldparam writer [IO] the pipe to the standard input of the process
     # @return [void]
-    def open_executable(executable, &block)
+    def open_executable(executable, &)
       if executable.nil?
         yield $stdout
       else
-        IO.popen(executable, 'w', &block)
+        IO.popen(executable, 'w', &)
       end
     end
   end
@@ -341,10 +340,12 @@ module ImapWatcher
   # @return [Fixnum] the maximum known sequence number of mails if known
   # @return [nil] otherwise
   def last_sequence_number(imap)
-    if imap.responses['EXISTS'] && !imap.responses['EXISTS'].empty?
-      imap.responses['EXISTS'].last
-    else
-      nil
+    imap.responses('EXISTS') do |responses|
+      if responses && !responses.empty?
+        responses.last
+      else
+        nil
+      end
     end
   end
 
@@ -376,7 +377,7 @@ module ImapWatcher
 
     while last_sequence_number(imap)
       max_sequence_number = last_sequence_number(imap)
-      imap.responses['EXISTS'].clear
+      imap.clear_responses('EXISTS')
       last_uid = do_process_new_messages(
         imap,
         tables,

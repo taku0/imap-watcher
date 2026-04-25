@@ -79,8 +79,8 @@ module ImapWatcher
     #   the transaction isolation level
     # @yieldparam db [SQLite3::Database] the database object
     # @return [void]
-    def transaction(level = :exclusive, &body)
-      @database.transaction(level, &body)
+    def transaction(level = :exclusive, &)
+      @database.transaction(level, &)
     end
   end
 
@@ -195,11 +195,8 @@ module ImapWatcher
     # @yieldreturn [BasicObject] any value
     # @return [ResultSet] if the block is not given, the query result
     # @return [BasicObject] if the block is given, the result of the block
-    def query_all(&block)
-      @database.query(
-        'SELECT message_id FROM message_ids ORDER BY id DESC',
-        &block
-      )
+    def query_all(&)
+      @database.query('SELECT message_id FROM message_ids ORDER BY id DESC', &)
     end
 
     # Deletes message IDs older then the given timestamp.

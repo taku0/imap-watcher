@@ -1,7 +1,7 @@
 plugins: rubocop-rake
 
 AllCops:
-  TargetRubyVersion: 3.0
+  TargetRubyVersion: 3.2
   NewCops: enable
 
 Gemspec/RequireMFA:

@@ -11,11 +11,11 @@ Gem::Specification.new do |s|
   s.executables = Dir['bin/*'].map { |p| File.basename(p) }
   s.license     = 'MIT'
 
-  s.required_ruby_version = '>=3.0'
+  s.required_ruby_version = '>=3.2'
 
-  s.add_dependency 'mail', '~>2.7'
-  s.add_dependency 'net-imap', '~>0.3'
+  s.add_dependency 'mail', '~>2.9'
+  s.add_dependency 'net-imap', '~>0.6'
   s.add_dependency 'net-pop'
   s.add_dependency 'net-smtp'
-  s.add_dependency 'sqlite3', '~>1.5'
+  s.add_dependency 'sqlite3', '~>1.7'
 end
