@@ -1,30 +1,30 @@
 PATH
   remote: .
   specs:
-    imap-watcher (1.0.0)
+    imap-watcher (2.0.0)
       mail (~> 2.9)
       net-imap (~> 0.6)
       net-pop
       net-smtp
-      sqlite3 (~> 1.7)
+      sqlite3 (~> 2.9)
 
 GEM
   remote: https://rubygems.org/
   specs:
     ast (2.4.3)
     date (3.5.1)
-    json (2.19.4)
-    language_server-protocol (3.17.0.5)
+    json (2.20.0)
+    language_server-protocol (3.17.0.6)
     lint_roller (1.1.0)
     logger (1.7.0)
-    mail (2.9.0)
+    mail (2.9.1)
       logger
       mini_mime (>= 0.1.1)
       net-imap
       net-pop
       net-smtp
     mini_mime (1.1.5)
-    net-imap (0.6.4)
+    net-imap (0.6.4.1)
       date
       net-protocol
     net-pop (0.1.2)
@@ -42,7 +42,7 @@ GEM
     rainbow (3.1.1)
     rake (13.4.2)
     regexp_parser (2.12.0)
-    rubocop (1.86.1)
+    rubocop (1.88.1)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
       lint_roller (~> 1.1.0)
@@ -60,12 +60,12 @@ GEM
       lint_roller (~> 1.1)
       rubocop (>= 1.72.1)
     ruby-progressbar (1.13.0)
-    sqlite3 (1.7.3-x86_64-linux)
+    sqlite3 (2.9.5-x86_64-linux-gnu)
     timeout (0.6.1)
     unicode-display_width (3.2.0)
       unicode-emoji (~> 4.1)
     unicode-emoji (4.2.0)
-    yard (0.9.43)
+    yard (0.9.44)
 
 PLATFORMS
   x86_64-linux

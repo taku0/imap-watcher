@@ -17,5 +17,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'net-imap', '~>0.6'
   s.add_dependency 'net-pop'
   s.add_dependency 'net-smtp'
-  s.add_dependency 'sqlite3', '~>1.7'
+  s.add_dependency 'sqlite3', '~>2.9'
 end
