@@ -13,9 +13,9 @@ Gem::Specification.new do |s|
 
   s.required_ruby_version = '>=3.2'
 
-  s.add_dependency 'mail', '~>2.9'
-  s.add_dependency 'net-imap', '~>0.6'
+  s.add_dependency 'mail'
+  s.add_dependency 'net-imap'
   s.add_dependency 'net-pop'
   s.add_dependency 'net-smtp'
-  s.add_dependency 'sqlite3', '~>2.9'
+  s.add_dependency 'sqlite3'
 end
